@@ -4,6 +4,10 @@ mod quadratic_formula;
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
+    if args.len() == 1 {
+        println!("Please input a valid function ( help for help )");
+        std::process::exit(1);
+    }
     let function = &args[1];
     match function.as_str() {
         "help" => help::help(),
@@ -39,6 +43,5 @@ fn main() {
             println!("Please enter valid function! Invalid funtion {}", function);
             std::process::exit(1);
         }
-    
     }
 }
