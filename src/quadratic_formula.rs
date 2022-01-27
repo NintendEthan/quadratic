@@ -6,9 +6,6 @@ struct QuadVars {
 
 impl QuadVars {
     fn quad_form(&self) -> (f64, f64) {
-        // let a: f64 = quad_vars.a as f64;
-        // let b: f64 = quad_vars.b as f64;
-        // let c: f64 = quad_vars.c as f64;
         let negative_b: f64 = self.b as f64 * -1.0;
         let pre_squared: f64 = (self.b as f64 * self.b as f64) - 4.0 * (self.a as f64 * self.c as f64);
         let squared = pre_squared.sqrt();
@@ -26,17 +23,9 @@ impl QuadVars {
 }
 
 pub fn quadratic_formula(a: i32, b: i32, c: i32) {
-    let eq = build_eq(a, b, c);
+    let eq = QuadVars {a, b, c};
     let result = eq.quad_form();
     let result_plus = result.0;
     let result_minus = result.1;
     println!("\n{0} or {1}",result_plus, result_minus);
-}
-
-fn build_eq(a: i32, b: i32, c: i32) -> QuadVars {
-    QuadVars {
-        a,
-        b,
-        c
-    }
 }
