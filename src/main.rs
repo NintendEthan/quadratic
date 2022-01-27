@@ -1,6 +1,6 @@
-
 mod help;
 mod quadratic_formula;
+use quadratic_formula::QuadVars;
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
@@ -45,3 +45,19 @@ fn main() {
         }
     }
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn sanity() {
+        assert_eq!(2 + 2, 4);
+    }
+    #[test]
+    fn test_quad_form() {
+        let test_eq = QuadVars { a: 1, b: -2, c: -15 };
+        let result = test_eq.quad_form();
+        assert!(result == (5.0, -3.0));
+    }
+}
+
+

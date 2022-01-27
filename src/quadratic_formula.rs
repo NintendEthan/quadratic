@@ -1,11 +1,11 @@
-struct QuadVars {
-    a: i32,
-    b: i32,
-    c: i32
+pub struct QuadVars {
+    pub a: i32,
+    pub b: i32,
+    pub c: i32
 }
 
 impl QuadVars {
-    fn quad_form(&self) -> (f64, f64) {
+    pub fn quad_form(&self) -> (f64, f64) {
         let negative_b: f64 = self.b as f64 * -1.0;
         let pre_squared: f64 = (self.b as f64 * self.b as f64) - 4.0 * (self.a as f64 * self.c as f64);
         let squared = pre_squared.sqrt();
